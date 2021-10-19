@@ -1,0 +1,8 @@
+name: PlotSk5
+version: '${project.version}'
+main: me.github.reportcardsmc.plotsk5.PlotSk5
+api-version: 1.16
+softdepend: [ PlotSquared ]
+depend: [ Skript ]
+authors: [ ReportCardsMC ]
+description: Skript addon for plot squared 5 support
