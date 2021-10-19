@@ -1,4 +1,4 @@
-package me.github.reportcardsmc.plotsk5.elements.expressions;
+package me.github.reportcardsmc.plotsk5.elements.expressions.events;
 
 import ch.njol.skript.ScriptLoader;
 import ch.njol.skript.Skript;
