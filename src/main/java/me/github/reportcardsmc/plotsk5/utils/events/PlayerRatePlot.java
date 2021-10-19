@@ -1,7 +1,6 @@
 package me.github.reportcardsmc.plotsk5.utils.events;
 
 import com.plotsquared.bukkit.player.BukkitPlayer;
-import com.plotsquared.core.events.PlotMergeEvent;
 import com.plotsquared.core.events.PlotRateEvent;
 import com.plotsquared.core.plot.PlotId;
 import com.plotsquared.core.plot.Rating;
@@ -9,7 +8,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.Cancellable;
 
 public class PlayerRatePlot extends BukkitPlotEvent implements Cancellable {
-    private PlotRateEvent event;
+    private final PlotRateEvent event;
 
     public PlayerRatePlot(PlotRateEvent event) {
         this.event = event;

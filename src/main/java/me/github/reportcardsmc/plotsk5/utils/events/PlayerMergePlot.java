@@ -1,14 +1,13 @@
 package me.github.reportcardsmc.plotsk5.utils.events;
 
 import com.plotsquared.bukkit.player.BukkitPlayer;
-import com.plotsquared.core.events.PlotClearEvent;
 import com.plotsquared.core.events.PlotMergeEvent;
 import com.plotsquared.core.plot.PlotId;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Cancellable;
 
 public class PlayerMergePlot extends BukkitPlotEvent implements Cancellable {
-    private PlotMergeEvent event;
+    private final PlotMergeEvent event;
 
     public PlayerMergePlot(PlotMergeEvent event) {
         this.event = event;
@@ -26,6 +25,10 @@ public class PlayerMergePlot extends BukkitPlotEvent implements Cancellable {
 
     public PlotId getPlotId() {
         return event.getPlot().getId();
+    }
+
+    public String getDirection() {
+        return event.getDir().toString();
     }
 
     public Player getPlayer() {

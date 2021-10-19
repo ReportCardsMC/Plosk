@@ -1,31 +1,30 @@
 package me.github.reportcardsmc.plotsk5.elements.expressions;
 
+import ch.njol.skript.ScriptLoader;
 import ch.njol.skript.Skript;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.ExpressionType;
 import ch.njol.skript.lang.SkriptParser;
 import ch.njol.skript.lang.util.SimpleExpression;
 import ch.njol.util.Kleenean;
-import com.plotsquared.core.plot.Plot;
-import org.bukkit.Location;
+import me.github.reportcardsmc.plotsk5.utils.events.PlayerMergePlot;
 import org.bukkit.event.Event;
 import org.jetbrains.annotations.Nullable;
 
-public class PlotAtLocationExpr extends SimpleExpression<String> {
-    static {
-        Skript.registerExpression(PlotAtLocationExpr.class, String.class, ExpressionType.COMBINED, "[the] [ID of [the]] [PlotSquared] plot at %location%");
-    }
+public class EventDirectionExpr extends SimpleExpression<String> {
 
-    private Expression<Location> loc;
+    static {
+        Skript.registerExpression(EventDirectionExpr.class, String.class, ExpressionType.SIMPLE, "[plotsquared] [event(-| )]merge(-| )direction");
+    }
 
     @Nullable
     @Override
     protected String[] get(Event e) {
-        Location l = loc.getSingle(e);
-        if (l == null) return null;
-        com.plotsquared.core.location.Location plotLoc = new com.plotsquared.core.location.Location(l.getWorld().getName(), l.getBlockX(), l.getBlockY(), l.getBlockZ());
-        Plot plot = plotLoc.getPlot();
-        return plot == null ? null : new String[]{plot.getId().toString()};
+        if (e instanceof PlayerMergePlot) {
+            PlayerMergePlot main = (PlayerMergePlot) e;
+            return new String[]{main.getDirection()};
+        }
+        return null;
     }
 
     @Override
@@ -40,13 +39,15 @@ public class PlotAtLocationExpr extends SimpleExpression<String> {
 
     @Override
     public String toString(@Nullable Event e, boolean debug) {
-        return "Plot at Location: " + loc.toString(e, debug);
+        return "Direction in plot merge event";
     }
 
-    @SuppressWarnings("unchecked")
     @Override
     public boolean init(Expression<?>[] exprs, int matchedPattern, Kleenean isDelayed, SkriptParser.ParseResult parseResult) {
-        loc = (Expression<Location>) exprs[0];
+        if (!ScriptLoader.isCurrentEvent(PlayerMergePlot.class)) {
+            Skript.error("Cannot use 'merge direction' outside of a plot merge event");
+            return false;
+        }
         return true;
     }
 }

@@ -7,7 +7,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.Cancellable;
 
 public class PlayerClaimPlot extends BukkitPlotEvent implements Cancellable {
-    private PlayerClaimPlotEvent event;
+    private final PlayerClaimPlotEvent event;
 
     public PlayerClaimPlot(PlayerClaimPlotEvent event) {
         this.event = event;

@@ -1,15 +1,11 @@
 package me.github.reportcardsmc.plotsk5.utils.events;
 
-import com.plotsquared.bukkit.player.BukkitPlayer;
-import com.plotsquared.core.events.PlayerClaimPlotEvent;
 import com.plotsquared.core.events.PlotDeleteEvent;
-import com.plotsquared.core.plot.Plot;
 import com.plotsquared.core.plot.PlotId;
-import org.bukkit.entity.Player;
 import org.bukkit.event.Cancellable;
 
 public class PlayerDeletePlot extends BukkitPlotEvent implements Cancellable {
-    private PlotDeleteEvent event;
+    private final PlotDeleteEvent event;
 
     public PlayerDeletePlot(PlotDeleteEvent event) {
         this.event = event;

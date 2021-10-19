@@ -7,7 +7,7 @@ import org.bukkit.entity.Player;
 
 public class PlayerLeavePlot extends BukkitPlotEvent {
 
-    private PlayerLeavePlotEvent event;
+    private final PlayerLeavePlotEvent event;
 
     public PlayerLeavePlot(PlayerLeavePlotEvent event) {
         this.event = event;

@@ -17,7 +17,7 @@ public final class PlotSk5 extends JavaPlugin {
     public void onEnable() {
         // Plugin startup logic
         instance = this;
-        plot = PlotSquared.get();;
+        plot = PlotSquared.get();
         if (plot == null) {
             getLogger().severe("You don't have plotsquared5 installed.");
             getPluginLoader().disablePlugin(this);

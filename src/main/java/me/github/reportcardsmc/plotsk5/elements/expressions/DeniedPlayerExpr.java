@@ -10,7 +10,6 @@ import ch.njol.util.Kleenean;
 import me.github.reportcardsmc.plotsk5.utils.events.PlayerDeniedFromPlot;
 import me.github.reportcardsmc.plotsk5.utils.events.PlayerUndeniedFromPlot;
 import org.bukkit.OfflinePlayer;
-import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.jetbrains.annotations.Nullable;
 
@@ -18,6 +17,19 @@ public class DeniedPlayerExpr extends SimpleExpression<OfflinePlayer> {
 
     static {
         Skript.registerExpression(DeniedPlayerExpr.class, OfflinePlayer.class, ExpressionType.SIMPLE, "[the] denied(-| )player", "[the] undenied(-| )player");
+    }
+
+    @Nullable
+    private static OfflinePlayer getPlayer(final @Nullable Event e) {
+        if (e == null) return null;
+        if (e instanceof PlayerDeniedFromPlot) {
+            final PlayerDeniedFromPlot main = (PlayerDeniedFromPlot) e;
+            return main.getDenied();
+        } else if (e instanceof PlayerUndeniedFromPlot) {
+            final PlayerUndeniedFromPlot main = (PlayerUndeniedFromPlot) e;
+            return main.getUndenied();
+        }
+        return null;
     }
 
     @Override
@@ -33,19 +45,6 @@ public class DeniedPlayerExpr extends SimpleExpression<OfflinePlayer> {
     @Override
     protected OfflinePlayer[] get(Event e) {
         return new OfflinePlayer[]{getPlayer(e)};
-    }
-
-    @Nullable
-    private static OfflinePlayer getPlayer(final @Nullable Event e) {
-        if ( e == null ) return null;
-        if (e instanceof PlayerDeniedFromPlot) {
-            final PlayerDeniedFromPlot main = (PlayerDeniedFromPlot) e;
-            return main.getDenied();
-        } else if (e instanceof PlayerUndeniedFromPlot) {
-            final PlayerUndeniedFromPlot main = (PlayerUndeniedFromPlot) e;
-            return main.getUndenied();
-        }
-        return null;
     }
 
     @Override

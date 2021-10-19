@@ -8,7 +8,7 @@ import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 
 public class PlayerUntrustedFromPlot extends BukkitPlotEvent {
-    private PlayerPlotTrustedEvent event;
+    private final PlayerPlotTrustedEvent event;
 
     public PlayerUntrustedFromPlot(PlayerPlotTrustedEvent event) {
         this.event = event;
@@ -22,5 +22,7 @@ public class PlayerUntrustedFromPlot extends BukkitPlotEvent {
         return ((BukkitPlayer) event.getInitiator()).player;
     }
 
-    public OfflinePlayer getTrusted() { return Bukkit.getOfflinePlayer(event.getPlayer()); }
+    public OfflinePlayer getTrusted() {
+        return Bukkit.getOfflinePlayer(event.getPlayer());
+    }
 }

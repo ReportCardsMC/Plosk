@@ -13,15 +13,6 @@ import org.jetbrains.annotations.Nullable;
 public class EventRegisters {
     public static PlotAPI plotAPI = new PlotAPI();
 
-    public static Plot getPlot(@Nullable String id) {
-        if (id == null) return null;
-        PlotId plotId = PlotId.fromString(id);
-        for (Plot plot : plotAPI.getAllPlots()) {
-            if (plot.getId().equals(plotId)) return plot;
-        }
-        return null;
-    }
-
     static {
         plotAPI.registerListener(new PlotSquaredListener());
         /*
@@ -220,5 +211,14 @@ public class EventRegisters {
                 return e.getPlayer();
             }
         }, 0);
+    }
+
+    public static Plot getPlot(@Nullable String id) {
+        if (id == null) return null;
+        PlotId plotId = PlotId.fromString(id);
+        for (Plot plot : plotAPI.getAllPlots()) {
+            if (plot.getId().equals(plotId)) return plot;
+        }
+        return null;
     }
 }

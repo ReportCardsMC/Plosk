@@ -13,6 +13,7 @@ public class LocationInRoadCond extends Condition {
     static {
         Skript.registerCondition(LocationInRoadCond.class, "[PlotSquared] %location% (1¦is|2¦is(n't| not)) in[side] [the] [plot] road");
     }
+
     Expression<Location> location;
 
     @Override

@@ -7,9 +7,7 @@ import ch.njol.skript.lang.ExpressionType;
 import ch.njol.skript.lang.SkriptParser.ParseResult;
 import ch.njol.skript.lang.util.SimpleExpression;
 import ch.njol.util.Kleenean;
-import me.github.reportcardsmc.plotsk5.utils.events.PlayerDeniedFromPlot;
 import me.github.reportcardsmc.plotsk5.utils.events.PlayerTrustedOnPlot;
-import me.github.reportcardsmc.plotsk5.utils.events.PlayerUndeniedFromPlot;
 import me.github.reportcardsmc.plotsk5.utils.events.PlayerUntrustedFromPlot;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.event.Event;
@@ -19,6 +17,19 @@ public class TrustedPlayerExpr extends SimpleExpression<OfflinePlayer> {
 
     static {
         Skript.registerExpression(TrustedPlayerExpr.class, OfflinePlayer.class, ExpressionType.SIMPLE, "[the] trusted(-| )player", "[the] untrusted(-| )player");
+    }
+
+    @Nullable
+    private static OfflinePlayer getPlayer(final @Nullable Event e) {
+        if (e == null) return null;
+        if (e instanceof PlayerTrustedOnPlot) {
+            final PlayerTrustedOnPlot main = (PlayerTrustedOnPlot) e;
+            return main.getTrusted();
+        } else if (e instanceof PlayerUntrustedFromPlot) {
+            final PlayerUntrustedFromPlot main = (PlayerUntrustedFromPlot) e;
+            return main.getTrusted();
+        }
+        return null;
     }
 
     @Override
@@ -34,19 +45,6 @@ public class TrustedPlayerExpr extends SimpleExpression<OfflinePlayer> {
     @Override
     protected OfflinePlayer[] get(Event e) {
         return new OfflinePlayer[]{getPlayer(e)};
-    }
-
-    @Nullable
-    private static OfflinePlayer getPlayer(final @Nullable Event e) {
-        if ( e == null ) return null;
-        if (e instanceof PlayerTrustedOnPlot) {
-            final PlayerTrustedOnPlot main = (PlayerTrustedOnPlot) e;
-            return main.getTrusted();
-        } else if (e instanceof PlayerUntrustedFromPlot) {
-            final PlayerUntrustedFromPlot main = (PlayerUntrustedFromPlot) e;
-            return main.getTrusted();
-        }
-        return null;
     }
 
     @Override

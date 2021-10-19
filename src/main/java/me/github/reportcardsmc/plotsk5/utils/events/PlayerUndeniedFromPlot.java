@@ -8,7 +8,7 @@ import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 
 public class PlayerUndeniedFromPlot extends BukkitPlotEvent {
-    private PlayerPlotDeniedEvent event;
+    private final PlayerPlotDeniedEvent event;
 
     public PlayerUndeniedFromPlot(PlayerPlotDeniedEvent event) {
         this.event = event;

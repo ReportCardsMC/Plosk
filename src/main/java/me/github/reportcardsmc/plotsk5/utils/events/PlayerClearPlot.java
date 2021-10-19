@@ -1,13 +1,11 @@
 package me.github.reportcardsmc.plotsk5.utils.events;
 
 import com.plotsquared.core.events.PlotClearEvent;
-import com.plotsquared.core.events.PlotDeleteEvent;
 import com.plotsquared.core.plot.PlotId;
-import org.bukkit.entity.Player;
 import org.bukkit.event.Cancellable;
 
 public class PlayerClearPlot extends BukkitPlotEvent implements Cancellable {
-    private PlotClearEvent event;
+    private final PlotClearEvent event;
 
     public PlayerClearPlot(PlotClearEvent event) {
         this.event = event;

@@ -6,7 +6,7 @@ import com.plotsquared.core.plot.Plot;
 import org.bukkit.entity.Player;
 
 public class PlayerEnterPlot extends BukkitPlotEvent {
-    private PlayerEnterPlotEvent event;
+    private final PlayerEnterPlotEvent event;
 
     public PlayerEnterPlot(PlayerEnterPlotEvent event) {
         this.event = event;
