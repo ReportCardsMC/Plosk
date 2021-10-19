@@ -47,4 +47,10 @@ public class PlotSquaredListener {
         else Bukkit.getPluginManager().callEvent(new PlayerUndeniedFromPlot(event));
     }
 
+    @Subscribe
+    public void onPlotTrust(PlayerPlotTrustedEvent event) {
+        if (event.wasAdded()) Bukkit.getPluginManager().callEvent(new PlayerTrustedOnPlot(event));
+        else Bukkit.getPluginManager().callEvent(new PlayerUntrustedFromPlot(event));
+    }
+
 }

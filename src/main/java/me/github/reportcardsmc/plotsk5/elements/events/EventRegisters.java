@@ -167,7 +167,7 @@ public class EventRegisters {
         Plot Undenied Event
         Has string value for plot id
         Has player value for player who caused event
-        Has "undenied player" for player who got denied
+        Has "undenied player" for player who got undenied
          */
         Skript.registerEvent("PlotSquared: Plot Undenied", PlotSkEvent.class, PlayerUndeniedFromPlot.class, "[PlotSquared] player undeny player [from plot]", "[PlotSquared] player unden(y|ied) from plot")
                 .description("Called when a player undenies a player from a plot")
@@ -179,6 +179,44 @@ public class EventRegisters {
         }, 0);
         EventValues.registerEventValue(PlayerUndeniedFromPlot.class, Player.class, new Getter<Player, PlayerUndeniedFromPlot>() {
             public Player get(PlayerUndeniedFromPlot e) {
+                return e.getPlayer();
+            }
+        }, 0);
+        /*
+        Plot Trust Event
+        Has string value for plot id
+        Has player value for player who caused event
+        Has "trusted player" for player who got trusted
+         */
+        Skript.registerEvent("PlotSquared: Plot Trusted", PlotSkEvent.class, PlayerTrustedOnPlot.class, "[PlotSquared] player trust player [in plot]", "[PlotSquared] player trusted (on|in) plot")
+                .description("Called when a player trusts a player on a plot")
+                .examples("on player trust player in plot:", "\tbroadcast \"%player% trusted %trusted player% in %event-string%\"");
+        EventValues.registerEventValue(PlayerTrustedOnPlot.class, String.class, new Getter<String, PlayerTrustedOnPlot>() {
+            public String get(PlayerTrustedOnPlot e) {
+                return e.getPlot().getId().toString();
+            }
+        }, 0);
+        EventValues.registerEventValue(PlayerTrustedOnPlot.class, Player.class, new Getter<Player, PlayerTrustedOnPlot>() {
+            public Player get(PlayerTrustedOnPlot e) {
+                return e.getPlayer();
+            }
+        }, 0);
+        /*
+        Plot Untrust Event
+        Has string value for plot id
+        Has player value for player who caused event
+        Has "trusted player" for player who got untrusted
+         */
+        Skript.registerEvent("PlotSquared: Plot Untrusted", PlotSkEvent.class, PlayerUntrustedFromPlot.class, "[PlotSquared] player untrust player [in plot]", "[PlotSquared] player untrusted (on|in) plot")
+                .description("Called when a player untrusts a player on a plot")
+                .examples("on player untrust player in plot:", "\tbroadcast \"%player% untrusted %untrusted player% in %event-string%\"");
+        EventValues.registerEventValue(PlayerUntrustedFromPlot.class, String.class, new Getter<String, PlayerUntrustedFromPlot>() {
+            public String get(PlayerUntrustedFromPlot e) {
+                return e.getPlot().getId().toString();
+            }
+        }, 0);
+        EventValues.registerEventValue(PlayerUntrustedFromPlot.class, Player.class, new Getter<Player, PlayerUntrustedFromPlot>() {
+            public Player get(PlayerUntrustedFromPlot e) {
                 return e.getPlayer();
             }
         }, 0);
