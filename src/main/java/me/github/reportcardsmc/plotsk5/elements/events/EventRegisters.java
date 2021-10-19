@@ -179,7 +179,7 @@ public class EventRegisters {
         Has player value for player who caused event
         Has "trusted player" for player who got trusted
          */
-        Skript.registerEvent("PlotSquared: Plot Trusted", PlotSkEvent.class, PlayerTrustedOnPlot.class, "[PlotSquared] player trust player [in plot]", "[PlotSquared] player trusted (on|in) plot")
+        Skript.registerEvent("PlotSquared: Plot Trusted", PlotSkEvent.class, PlayerTrustedOnPlot.class, "[PlotSquared] player trust player [(in|on|at) plot]", "[PlotSquared] player trusted (in|on|at) plot")
                 .description("Called when a player trusts a player on a plot")
                 .examples("on player trust player in plot:", "\tbroadcast \"%player% trusted %trusted player% in %event-string%\"");
         EventValues.registerEventValue(PlayerTrustedOnPlot.class, String.class, new Getter<String, PlayerTrustedOnPlot>() {
