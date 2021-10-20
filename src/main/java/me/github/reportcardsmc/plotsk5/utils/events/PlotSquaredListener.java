@@ -1,7 +1,7 @@
 package me.github.reportcardsmc.plotsk5.utils.events;
 
+import com.google.common.eventbus.Subscribe;
 import com.plotsquared.core.events.*;
-import com.sk89q.worldedit.util.eventbus.Subscribe;
 import org.bukkit.Bukkit;
 
 public class PlotSquaredListener {
