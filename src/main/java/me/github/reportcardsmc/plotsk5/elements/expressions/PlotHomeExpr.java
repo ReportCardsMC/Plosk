@@ -42,7 +42,7 @@ public class PlotHomeExpr extends SimpleExpression<Location> {
 
     @Override
     public String toString(@Nullable Event e, boolean debug) {
-        return "Biome of plot: " + plotID.toString(e, debug);
+        return "Home of plot: " + plotID.toString(e, debug);
     }
 
     @SuppressWarnings("unchecked")
