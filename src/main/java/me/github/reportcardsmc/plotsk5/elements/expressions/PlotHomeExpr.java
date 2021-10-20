@@ -1,12 +1,18 @@
 package me.github.reportcardsmc.plotsk5.elements.expressions;
 
 import ch.njol.skript.Skript;
+import ch.njol.skript.classes.Changer;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.ExpressionType;
 import ch.njol.skript.lang.SkriptParser;
 import ch.njol.skript.lang.util.SimpleExpression;
 import ch.njol.util.Kleenean;
+import ch.njol.util.coll.CollectionUtils;
+import com.plotsquared.core.PlotSquared;
+import com.plotsquared.core.location.BlockLoc;
 import com.plotsquared.core.plot.Plot;
+import com.plotsquared.core.plot.PlotArea;
+import com.plotsquared.core.setup.PlotAreaBuilder;
 import com.sk89q.worldedit.math.BlockVector3;
 import me.github.reportcardsmc.plotsk5.utils.PlotSquaredUtil;
 import org.bukkit.Bukkit;
@@ -50,5 +56,23 @@ public class PlotHomeExpr extends SimpleExpression<Location> {
     public boolean init(Expression<?>[] exprs, int matchedPattern, Kleenean isDelayed, SkriptParser.ParseResult parseResult) {
         plotID = (Expression<String>) exprs[0];
         return true;
+    }
+
+    @Nullable
+    @Override
+    public Class<?>[] acceptChange(Changer.ChangeMode mode) {
+        return (mode == Changer.ChangeMode.SET ? CollectionUtils.array(Location.class) : null);
+    }
+
+    @Override
+    public void change(Event e, @Nullable Object[] delta, Changer.ChangeMode mode) {
+        Location location = (Location) delta[0];
+        Plot plot;
+        if (plotID.getSingle(e) == null || (plot = PlotSquaredUtil.getPlot(plotID.getSingle(e))) == null) return;
+        com.plotsquared.core.location.Location bot = plot.getManager().getPlotBottomLocAbs(plot.getId());
+        int x = location.getBlockX() - bot.getX();
+        int z = location.getBlockZ() - bot.getZ();
+        int y = location.getBlockY();
+        plot.setHome(new BlockLoc(x, y, z, location.getYaw(), location.getPitch()));
     }
 }
