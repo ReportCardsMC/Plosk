@@ -6,6 +6,7 @@ import ch.njol.skript.lang.ExpressionType;
 import ch.njol.skript.lang.SkriptParser;
 import ch.njol.skript.lang.util.SimpleExpression;
 import ch.njol.util.Kleenean;
+import com.plotsquared.bukkit.util.BukkitUtil;
 import com.plotsquared.core.player.PlotPlayer;
 import com.plotsquared.core.plot.Plot;
 import me.github.reportcardsmc.plotsk5.utils.PlotSquaredUtil;
@@ -26,7 +27,7 @@ public class OwnedPlotsExpr extends SimpleExpression<String> {
     @Override
     protected String[] get(Event e) {
         if (playerExpression.getSingle(e) == null) return null;
-        return PlotSquaredUtil.getPlotIDs(playerExpression.getSingle(e).getUniqueId());
+        return PlotSquaredUtil.plotAPI.getPlayerPlots(BukkitUtil.getPlayer(playerExpression.getSingle(e))).stream().map(plot -> plot.getId().toString()).toArray(String[]::new);
     }
 
     @Override
