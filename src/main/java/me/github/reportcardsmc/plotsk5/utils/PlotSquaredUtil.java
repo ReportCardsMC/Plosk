@@ -3,10 +3,8 @@ package me.github.reportcardsmc.plotsk5.utils;
 import com.plotsquared.core.api.PlotAPI;
 import com.plotsquared.core.plot.Plot;
 import com.plotsquared.core.plot.PlotId;
-import net.kyori.adventure.text.Component;
-import org.bukkit.Bukkit;
+import org.jetbrains.annotations.Nullable;
 
-import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
