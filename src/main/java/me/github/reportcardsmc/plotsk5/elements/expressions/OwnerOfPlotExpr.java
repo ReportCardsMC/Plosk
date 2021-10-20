@@ -28,7 +28,8 @@ public class OwnerOfPlotExpr extends SimpleExpression<OfflinePlayer> {
     @Override
     protected OfflinePlayer[] get(Event e) {
         Plot plot;
-        if (id.getSingle(e) == null || (plot = getPlot(id.getSingle(e))) == null) return null; // Inspired from SkUniversal (us.donut.skuniversal.plotsquared.expressions.ExprPlotOwner)
+        if (id.getSingle(e) == null || (plot = getPlot(id.getSingle(e))) == null)
+            return null; // Inspired from SkUniversal (us.donut.skuniversal.plotsquared.expressions.ExprPlotOwner)
         return plot.getOwners().stream().map(Bukkit::getOfflinePlayer).toArray(OfflinePlayer[]::new);
     }
 

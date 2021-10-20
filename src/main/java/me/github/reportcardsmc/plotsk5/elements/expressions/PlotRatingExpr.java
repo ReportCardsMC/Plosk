@@ -8,7 +8,6 @@ import ch.njol.skript.lang.util.SimpleExpression;
 import ch.njol.util.Kleenean;
 import com.plotsquared.core.plot.Plot;
 import me.github.reportcardsmc.plotsk5.utils.PlotSquaredUtil;
-import org.bukkit.Location;
 import org.bukkit.event.Event;
 import org.jetbrains.annotations.Nullable;
 

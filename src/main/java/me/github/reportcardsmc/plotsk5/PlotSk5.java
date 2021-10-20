@@ -3,7 +3,6 @@ package me.github.reportcardsmc.plotsk5;
 import ch.njol.skript.Skript;
 import ch.njol.skript.SkriptAddon;
 import com.plotsquared.core.PlotSquared;
-import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.IOException;

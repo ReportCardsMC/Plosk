@@ -24,7 +24,8 @@ public class PlotFlagExpr extends SimpleExpression<Object> {
     @Override
     protected Object[] get(Event e) {
         Plot plot;
-        if (id.getSingle(e) == null || flag.getSingle(e) == null || (plot = PlotSquaredUtil.getPlot(id.getSingle(e))) == null) return null;
+        if (id.getSingle(e) == null || flag.getSingle(e) == null || (plot = PlotSquaredUtil.getPlot(id.getSingle(e))) == null)
+            return null;
         return new Object[]{plot.getFlag(GlobalFlagContainer.getInstance().getFlagFromString(flag.getSingle(e)))};
     }
 

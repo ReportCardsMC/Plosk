@@ -14,8 +14,7 @@ import org.bukkit.OfflinePlayer;
 import org.bukkit.event.Event;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.HashSet;
 
 import static me.github.reportcardsmc.plotsk5.utils.PlotSquaredUtil.getPlot;
 

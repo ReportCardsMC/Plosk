@@ -11,8 +11,6 @@ import me.github.reportcardsmc.plotsk5.utils.PlotSquaredUtil;
 import org.bukkit.event.Event;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.function.Consumer;
-
 public class PlotBiomeExpr extends SimpleExpression<String> {
     static {
         Skript.registerExpression(PlotBiomeExpr.class, String.class, ExpressionType.COMBINED, "[PlotSquared] [the] biome of plot [with id] %string%");

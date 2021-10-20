@@ -7,14 +7,10 @@ import ch.njol.skript.lang.SkriptParser;
 import ch.njol.skript.lang.util.SimpleExpression;
 import ch.njol.util.Kleenean;
 import com.plotsquared.bukkit.util.BukkitUtil;
-import com.plotsquared.core.player.PlotPlayer;
-import com.plotsquared.core.plot.Plot;
 import me.github.reportcardsmc.plotsk5.utils.PlotSquaredUtil;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.event.Event;
 import org.jetbrains.annotations.Nullable;
-
-import java.util.Arrays;
 
 public class OwnedPlotsExpr extends SimpleExpression<String> {
 
@@ -23,6 +19,7 @@ public class OwnedPlotsExpr extends SimpleExpression<String> {
     }
 
     private Expression<OfflinePlayer> playerExpression;
+
     @Nullable
     @Override
     protected String[] get(Event e) {
