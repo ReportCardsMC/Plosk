@@ -25,19 +25,4 @@ public class PlotSquaredUtil {
         return null;
     }
 
-    public static String[] getPlotIDs(UUID uuid) {
-        List<String> ids = new ArrayList<>();
-        for (Plot plot : plotAPI.getAllPlots()) {
-            if (plot.getOwner().toString().equals(uuid.toString())) ids.add(plot.getId().toString());
-        }
-        return ids.toArray(new String[0]);
-    }
-
-    @Nullable
-    public static void setOutline(Plot plot, Material material) {
-        BlockType blockType = BlockTypes.get(material.toString());
-        if (blockType == null) return;
-        plot.getManager().setComponent(plot.getId(), "outline", blockType.getDefaultState());
-    }
-
 }
