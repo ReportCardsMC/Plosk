@@ -1,31 +1,14 @@
 package me.github.reportcardsmc.plotsk5.utils;
 
 import com.plotsquared.core.plot.Plot;
-import com.plotsquared.core.util.MathMan;
-import com.plotsquared.core.util.PatternUtil;
-import com.sk89q.worldedit.WorldEdit;
-import com.sk89q.worldedit.extension.factory.parser.pattern.SingleBlockPatternParser;
-import com.sk89q.worldedit.extension.input.InputParseException;
-import com.sk89q.worldedit.extension.input.ParserContext;
-import com.sk89q.worldedit.function.pattern.Pattern;
-import com.sk89q.worldedit.regions.CuboidRegion;
-import com.sk89q.worldedit.world.block.BaseBlock;
-import com.sk89q.worldedit.world.block.BlockStateHolder;
-import com.sk89q.worldedit.world.block.BlockType;
 import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
-import org.bukkit.block.BlockState;
-import org.bukkit.util.RayTraceResult;
 import org.bukkit.util.Vector;
 import org.jetbrains.annotations.Nullable;
 
-import java.awt.geom.Area;
-import java.awt.geom.PathIterator;
-import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class LocationUtil {
@@ -56,11 +39,6 @@ public class LocationUtil {
 //        return line.toArray(new Location[line.size()]);
 //    }
 
-    @Nullable
-    public static void newBorder(Plot plot, int border) throws InputParseException {
-        Pattern pattern = new SingleBlockPatternParser(WorldEdit.getInstance()).parseFromInput("minecraft:iron_block", new ParserContext());
-        plot.getManager().setComponent(plot.getId(), "outline", pattern);
-    }
 
     @Nullable
     public static Block[] getBorder(Plot plot, int borderHeight) {

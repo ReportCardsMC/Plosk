@@ -1,7 +1,5 @@
 package me.github.reportcardsmc.plotsk5.utils;
 
-import org.bukkit.util.Vector;
-
 public class VectorLib {
 //    public static Vector[] getLine(Vector vector1, Vector vector2, double density) {
 //        double length = vector1.distance(vector2);

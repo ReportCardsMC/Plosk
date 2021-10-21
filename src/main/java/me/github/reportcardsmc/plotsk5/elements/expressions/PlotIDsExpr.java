@@ -6,16 +6,12 @@ import ch.njol.skript.lang.ExpressionType;
 import ch.njol.skript.lang.SkriptParser;
 import ch.njol.skript.lang.util.SimpleExpression;
 import ch.njol.util.Kleenean;
-import com.plotsquared.core.plot.Plot;
 import me.github.reportcardsmc.plotsk5.utils.PlotSquaredUtil;
 import org.bukkit.World;
 import org.bukkit.event.Event;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
-import java.util.stream.Collectors;
 
 public class PlotIDsExpr extends SimpleExpression<String> {
 
