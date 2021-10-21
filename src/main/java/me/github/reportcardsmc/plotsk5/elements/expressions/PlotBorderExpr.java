@@ -21,15 +21,16 @@ public class PlotBorderExpr extends SimpleExpression<Block> {
 
     private Expression<Number> height;
     private Expression<String> plot;
+
     @Nullable
     @Override
     protected Block[] get(Event e) {
         Plot p;
         Number h = height.getSingle(e);
-        if (plot.getSingle(e) == null || h == null || (p = PlotSquaredUtil.getPlot(plot.getSingle(e))) == null) return null;
+        if (plot.getSingle(e) == null || h == null || (p = PlotSquaredUtil.getPlot(plot.getSingle(e))) == null)
+            return null;
         Block[] blocks = LocationUtil.getBorder(p, h.intValue());
-        if (blocks == null) return null;
-//        for (Block block : blocks) {
+        //        for (Block block : blocks) {
 //            Bukkit.getLogger().warning(block.getLocation().toString());
 //        }
         return blocks;

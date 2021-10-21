@@ -20,13 +20,15 @@ public class PlotIDsExpr extends SimpleExpression<String> {
     }
 
     private Expression<World> worldExpression;
+
     @Nullable
     @Override
     protected String[] get(Event e) {
         World world;
         if (worldExpression != null) {
             world = worldExpression.getSingle(e);
-            if (world != null) return PlotSquaredUtil.plotAPI.getAllPlots().stream().filter((p) -> Objects.equals(p.getWorldName(), world.getName())).map((p) -> p.getId().toString()).toArray(String[]::new);
+            if (world != null)
+                return PlotSquaredUtil.plotAPI.getAllPlots().stream().filter((p) -> Objects.equals(p.getWorldName(), world.getName())).map((p) -> p.getId().toString()).toArray(String[]::new);
         }
         return PlotSquaredUtil.plotAPI.getAllPlots().stream().map((p) -> p.getId().toString()).toArray(String[]::new);
     }
