@@ -1,6 +1,7 @@
 package me.github.reportcardsmc.plotsk5.elements.expressions;
 
 import ch.njol.skript.Skript;
+import ch.njol.skript.doc.*;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.ExpressionType;
 import ch.njol.skript.lang.SkriptParser;
@@ -12,6 +13,11 @@ import org.bukkit.OfflinePlayer;
 import org.bukkit.event.Event;
 import org.jetbrains.annotations.Nullable;
 
+@Name("Owned Plots of Player")
+@Description("A list of plot id's the player owns")
+@Examples({"command /owned:", "    trigger:", "        send \"Owned Plots: %owned plots of player%\""})
+@Since("1.0")
+@RequiredPlugins("PlotSquared")
 public class OwnedPlotsExpr extends SimpleExpression<String> {
 
     static {

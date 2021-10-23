@@ -1,6 +1,7 @@
 package me.github.reportcardsmc.plotsk5.elements.expressions;
 
 import ch.njol.skript.Skript;
+import ch.njol.skript.doc.*;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.ExpressionType;
 import ch.njol.skript.lang.SkriptParser;
@@ -11,6 +12,11 @@ import org.bukkit.Location;
 import org.bukkit.event.Event;
 import org.jetbrains.annotations.Nullable;
 
+@Name("Plot at Location")
+@Description("The plot at a location")
+@Examples({"command /plot:", "    trigger:", "        send \"Plot: %plot at player%\""})
+@Since("1.0")
+@RequiredPlugins("PlotSquared")
 public class PlotAtLocationExpr extends SimpleExpression<String> {
     static {
         Skript.registerExpression(PlotAtLocationExpr.class, String.class, ExpressionType.COMBINED, "[the] [ID of [the]] [PlotSquared] plot at %location%");

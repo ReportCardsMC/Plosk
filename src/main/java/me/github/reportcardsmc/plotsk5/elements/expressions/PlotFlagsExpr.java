@@ -1,6 +1,7 @@
 package me.github.reportcardsmc.plotsk5.elements.expressions;
 
 import ch.njol.skript.Skript;
+import ch.njol.skript.doc.*;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.ExpressionType;
 import ch.njol.skript.lang.SkriptParser;
@@ -12,6 +13,11 @@ import me.github.reportcardsmc.plotsk5.utils.PlotSquaredUtil;
 import org.bukkit.event.Event;
 import org.jetbrains.annotations.Nullable;
 
+@Name("Flags of Plot")
+@Description("A list of flags that are added to the plot")
+@Examples({"command /flags:", "    trigger:", "        send \"Flags: %flags in plot plot at player%\""})
+@Since("1.0")
+@RequiredPlugins("PlotSquared")
 public class PlotFlagsExpr extends SimpleExpression<String> {
     static {
         Skript.registerExpression(PlotFlagsExpr.class, String.class, ExpressionType.COMBINED, "[PlotSquared] [value of] [all] flags (of|in|for) plot [with id] %string%");

@@ -1,17 +1,25 @@
 package me.github.reportcardsmc.plotsk5.elements.expressions;
 
 import ch.njol.skript.Skript;
+import ch.njol.skript.classes.Changer;
+import ch.njol.skript.doc.*;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.ExpressionType;
 import ch.njol.skript.lang.SkriptParser;
 import ch.njol.skript.lang.util.SimpleExpression;
 import ch.njol.util.Kleenean;
+import ch.njol.util.coll.CollectionUtils;
 import com.plotsquared.core.plot.Plot;
 import com.plotsquared.core.plot.flag.GlobalFlagContainer;
 import me.github.reportcardsmc.plotsk5.utils.PlotSquaredUtil;
 import org.bukkit.event.Event;
 import org.jetbrains.annotations.Nullable;
 
+@Name("Plot Flag")
+@Description("Get the value of a plot flag")
+@Examples({"command /flag <text>:", "    trigger:", "        send \"Flag %arg-1%: %flag arg-1 in plot plot at player%\""})
+@Since("1.0")
+@RequiredPlugins("PlotSquared")
 public class PlotFlagExpr extends SimpleExpression<Object> {
     static {
         Skript.registerExpression(PlotFlagExpr.class, Object.class, ExpressionType.COMBINED, "[PlotSquared] [value of] [the] flag %string% (in|for) plot [with id] %string%");
@@ -50,5 +58,28 @@ public class PlotFlagExpr extends SimpleExpression<Object> {
         id = (Expression<String>) exprs[1];
         flag = (Expression<String>) exprs[0];
         return true;
+    }
+
+    @Nullable
+    @Override
+    public Class<?>[] acceptChange(Changer.ChangeMode mode) {
+        return mode.equals(Changer.ChangeMode.SET) || mode.equals(Changer.ChangeMode.DELETE) || mode.equals(Changer.ChangeMode.RESET) ? CollectionUtils.array(Boolean.class) : null;
+    }
+
+    @Override
+    public void change(Event e, @Nullable Object[] delta, Changer.ChangeMode mode) {
+        Boolean value = (Boolean) delta[0];
+        Plot plot;
+        String f = flag.getSingle(e);
+        if (id.getSingle(e) == null || f == null || value == null || (plot = PlotSquaredUtil.getPlot(id.getSingle(e))) == null) return;
+        switch (mode) {
+            case SET:
+                plot.setFlag(GlobalFlagContainer.getInstance().getFlagClassFromString(f), value.toString());
+                break;
+            case RESET:
+            case DELETE:
+                plot.removeFlag(GlobalFlagContainer.getInstance().getFlagFromString(f));
+                break;
+        }
     }
 }

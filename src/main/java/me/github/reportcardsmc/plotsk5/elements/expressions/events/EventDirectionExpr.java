@@ -2,6 +2,7 @@ package me.github.reportcardsmc.plotsk5.elements.expressions.events;
 
 import ch.njol.skript.ScriptLoader;
 import ch.njol.skript.Skript;
+import ch.njol.skript.doc.*;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.ExpressionType;
 import ch.njol.skript.lang.SkriptParser;
@@ -11,6 +12,11 @@ import me.github.reportcardsmc.plotsk5.utils.events.PlayerMergePlot;
 import org.bukkit.event.Event;
 import org.jetbrains.annotations.Nullable;
 
+@Name("Merge Direction")
+@Description("The direction of a merge in a `plot merge` event")
+@Examples({"on plot merge", "    send \"You have merged the plot in direction %merge direction%\" to player"})
+@Since("1.0")
+@RequiredPlugins("PlotSquared")
 public class EventDirectionExpr extends SimpleExpression<String> {
 
     static {

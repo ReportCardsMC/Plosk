@@ -1,6 +1,7 @@
 package me.github.reportcardsmc.plotsk5.elements.conditions;
 
 import ch.njol.skript.Skript;
+import ch.njol.skript.doc.*;
 import ch.njol.skript.lang.Condition;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
@@ -11,6 +12,11 @@ import org.bukkit.OfflinePlayer;
 import org.bukkit.event.Event;
 import org.jetbrains.annotations.Nullable;
 
+@Name("Player is Trusted")
+@Description("Check if a player is trusted in a plot.")
+@Examples({"if player is trusted in plot with id \"0;0\":", "    send \"You are trusted in 0;0!\""})
+@Since("1.0")
+@RequiredPlugins("PlotSquared")
 public class PlayerIsTrustedCond extends Condition {
 
     static {

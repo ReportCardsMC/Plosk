@@ -42,6 +42,11 @@ public class PlotSquaredListener {
     }
 
     @Subscribe
+    public void onPlotTeleport(PlayerTeleportToPlotEvent event) {
+        Bukkit.getPluginManager().callEvent(new PlotTeleportEvent(event));
+    }
+
+    @Subscribe
     public void onPlotDenied(PlayerPlotDeniedEvent event) {
         if (event.wasAdded()) Bukkit.getPluginManager().callEvent(new PlayerDeniedFromPlot(event));
         else Bukkit.getPluginManager().callEvent(new PlayerUndeniedFromPlot(event));

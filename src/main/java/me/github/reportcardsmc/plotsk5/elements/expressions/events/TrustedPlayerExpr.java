@@ -2,6 +2,7 @@ package me.github.reportcardsmc.plotsk5.elements.expressions.events;
 
 import ch.njol.skript.ScriptLoader;
 import ch.njol.skript.Skript;
+import ch.njol.skript.doc.*;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.ExpressionType;
 import ch.njol.skript.lang.SkriptParser.ParseResult;
@@ -13,6 +14,11 @@ import org.bukkit.OfflinePlayer;
 import org.bukkit.event.Event;
 import org.jetbrains.annotations.Nullable;
 
+@Name("Trusted Player")
+@Description("The trusted/untrusted player in a `plot trust`, and `plot untrust` event")
+@Examples({"on plot trust", "    send \"You have been trusted on %event-string%\" to trusted player"})
+@Since("1.0")
+@RequiredPlugins("PlotSquared")
 public class TrustedPlayerExpr extends SimpleExpression<OfflinePlayer> {
 
     static {

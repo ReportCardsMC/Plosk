@@ -2,6 +2,7 @@ package me.github.reportcardsmc.plotsk5.elements.expressions;
 
 import ch.njol.skript.Skript;
 import ch.njol.skript.classes.Changer;
+import ch.njol.skript.doc.*;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.ExpressionType;
 import ch.njol.skript.lang.SkriptParser;
@@ -18,6 +19,11 @@ import java.util.HashSet;
 
 import static me.github.reportcardsmc.plotsk5.utils.PlotSquaredUtil.getPlot;
 
+@Name("Members of Plot")
+@Description("A list of players that are marked as a member in the plot")
+@Examples({"command /members:", "    trigger:", "        send \"Members: %members in plot plot at player%\""})
+@Since("1.0")
+@RequiredPlugins("PlotSquared")
 public class PlotMembersExpr extends SimpleExpression<OfflinePlayer> {
 
     static {

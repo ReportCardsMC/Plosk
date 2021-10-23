@@ -1,6 +1,7 @@
 package me.github.reportcardsmc.plotsk5.elements.conditions;
 
 import ch.njol.skript.Skript;
+import ch.njol.skript.doc.*;
 import ch.njol.skript.lang.Condition;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
@@ -9,6 +10,11 @@ import org.bukkit.Location;
 import org.bukkit.event.Event;
 import org.jetbrains.annotations.Nullable;
 
+@Name("Location in Road")
+@Description("Check if a location is in a plot road.")
+@Examples({"if player is in the plot road:", "    send \"You are in the road!\""})
+@Since("1.0")
+@RequiredPlugins("PlotSquared")
 public class LocationInRoadCond extends Condition {
     static {
         Skript.registerCondition(LocationInRoadCond.class, "[PlotSquared] %location% (1¦is|2¦is(n't| not)) in[side] [the] [plot] road");

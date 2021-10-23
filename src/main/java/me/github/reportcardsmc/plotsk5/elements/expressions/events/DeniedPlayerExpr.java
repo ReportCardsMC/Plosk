@@ -2,6 +2,7 @@ package me.github.reportcardsmc.plotsk5.elements.expressions.events;
 
 import ch.njol.skript.ScriptLoader;
 import ch.njol.skript.Skript;
+import ch.njol.skript.doc.*;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.ExpressionType;
 import ch.njol.skript.lang.SkriptParser.ParseResult;
@@ -13,6 +14,11 @@ import org.bukkit.OfflinePlayer;
 import org.bukkit.event.Event;
 import org.jetbrains.annotations.Nullable;
 
+@Name("Denied Player")
+@Description("The denied/undenied player in a `plot deny`, and `plot undeny` event")
+@Examples({"on plot deny", "    send \"You have been denied from %event-string%\" to denied player"})
+@Since("1.0")
+@RequiredPlugins("PlotSquared")
 public class DeniedPlayerExpr extends SimpleExpression<OfflinePlayer> {
 
     static {

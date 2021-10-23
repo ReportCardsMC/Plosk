@@ -1,6 +1,7 @@
 package me.github.reportcardsmc.plotsk5.elements.expressions;
 
 import ch.njol.skript.Skript;
+import ch.njol.skript.doc.*;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.ExpressionType;
 import ch.njol.skript.lang.SkriptParser;
@@ -13,6 +14,11 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Objects;
 
+@Name("All plot ID's")
+@Description("A list of plot id's in a world, or all worlds")
+@Examples({"command /ids:", "    trigger:", "        send \"Plots: %all plot ids in player's world%\""})
+@Since("1.0")
+@RequiredPlugins("PlotSquared")
 public class PlotIDsExpr extends SimpleExpression<String> {
 
     static {

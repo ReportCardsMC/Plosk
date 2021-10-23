@@ -25,11 +25,9 @@ public class LocationUtil {
             loc.setY(borderHeight);
 
             int next = corners.size() == i + 1 ? 0 : i + 1;
-            Bukkit.broadcast(Component.text("i: " + i + " next: " + next));
 
             Location nextLoc = toLocation(corners.get(next));
             nextLoc.setY(borderHeight);
-            Bukkit.broadcast(Component.text("loc: " + loc.toVector() + " nextLoc: " + nextLoc.toVector()));
 
             double distance = loc.distance(nextLoc);
             Vector p1 = loc.toVector();

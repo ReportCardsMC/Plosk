@@ -1,6 +1,7 @@
 package me.github.reportcardsmc.plotsk5.elements.expressions;
 
 import ch.njol.skript.Skript;
+import ch.njol.skript.doc.*;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.ExpressionType;
 import ch.njol.skript.lang.SkriptParser;
@@ -13,6 +14,11 @@ import org.bukkit.block.Block;
 import org.bukkit.event.Event;
 import org.jetbrains.annotations.Nullable;
 
+@Name("Plot Border Blocks")
+@Description("List of blocks that border the plot (inner border)")
+@Examples({"command /setborder:", "    trigger:", "        set border blocks of plot plot at player at height 70 to bedrock"})
+@Since("1.0")
+@RequiredPlugins("PlotSquared")
 public class PlotBorderExpr extends SimpleExpression<Block> {
 
     static {

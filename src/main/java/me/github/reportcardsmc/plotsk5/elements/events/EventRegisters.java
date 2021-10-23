@@ -211,6 +211,24 @@ public class EventRegisters {
                 return e.getPlayer();
             }
         }, 0);
+        /*
+        Plot Teleport Event
+        Has string value for plot id
+        Has player value for player who caused event
+         */
+        Skript.registerEvent("PlotSquared: Plot Teleport", PlotSkEvent.class, PlotTeleportEvent.class, "[PlotSquared] [player] teleport to plot")
+                .description("Called when a player teleports to a plot")
+                .examples("on player teleport to plot:", "\tbroadcast \"%player% teleported to %event-string%\"");
+        EventValues.registerEventValue(PlotTeleportEvent.class, String.class, new Getter<String, PlotTeleportEvent>() {
+            public String get(PlotTeleportEvent e) {
+                return e.getPlot().getId().toString();
+            }
+        }, 0);
+        EventValues.registerEventValue(PlotTeleportEvent.class, Player.class, new Getter<Player, PlotTeleportEvent>() {
+            public Player get(PlotTeleportEvent e) {
+                return e.getPlayer();
+            }
+        }, 0);
     }
 
     public static Plot getPlot(@Nullable String id) {
