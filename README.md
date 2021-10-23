@@ -1,2 +1,2 @@
-# PlotSk5
+# Plosk
 The PlotSquared(5) Skript Addon
