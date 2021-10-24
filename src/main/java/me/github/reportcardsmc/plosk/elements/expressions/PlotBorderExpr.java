@@ -22,7 +22,7 @@ import org.jetbrains.annotations.Nullable;
 public class PlotBorderExpr extends SimpleExpression<Block> {
 
     static {
-        Skript.registerExpression(PlotBorderExpr.class, Block.class, ExpressionType.COMBINED, "[plotsquared] [all] [inner] border blocks of plot [with id] %string% (at|with) height %number%");
+        Skript.registerExpression(PlotBorderExpr.class, Block.class, ExpressionType.COMBINED, "[PlotSquared] [all] [inner] border blocks of plot [with id] %string% (at|with) height %number%");
     }
 
     private Expression<Number> height;

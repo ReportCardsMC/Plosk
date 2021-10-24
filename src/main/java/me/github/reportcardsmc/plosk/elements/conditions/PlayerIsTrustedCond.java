@@ -20,7 +20,7 @@ import org.jetbrains.annotations.Nullable;
 public class PlayerIsTrustedCond extends Condition {
 
     static {
-        Skript.registerCondition(PlayerIsTrustedCond.class, "[plotsquared] %offlineplayer% (1¦is|2¦is(n't| not)) trusted in [plot] [with id] %string%");
+        Skript.registerCondition(PlayerIsTrustedCond.class, "[PlotSquared] %offlineplayer% (1¦is|2¦is(n't| not)) trusted in [plot] [with id] %string%");
     }
 
     private Expression<OfflinePlayer> playerExpression;

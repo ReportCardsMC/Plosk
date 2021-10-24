@@ -27,7 +27,7 @@ import static me.github.reportcardsmc.plosk.utils.PlotSquaredUtil.getPlot;
 public class DeniedInPlotExpr extends SimpleExpression<OfflinePlayer> {
 
     static {
-        Skript.registerExpression(DeniedInPlotExpr.class, OfflinePlayer.class, ExpressionType.COMBINED, "[plotsquared] denied player[s] (in|on) plot [with id] %string%");
+        Skript.registerExpression(DeniedInPlotExpr.class, OfflinePlayer.class, ExpressionType.COMBINED, "[PlotSquared] denied player[s] (in|on) plot [with id] %string%");
     }
 
     private Expression<String> id;

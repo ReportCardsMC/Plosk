@@ -22,7 +22,7 @@ import java.util.Objects;
 public class PlotIDsExpr extends SimpleExpression<String> {
 
     static {
-        Skript.registerExpression(PlotIDsExpr.class, String.class, ExpressionType.SIMPLE, "[plotsquared] all [of the] plot ids [in %-world%]");
+        Skript.registerExpression(PlotIDsExpr.class, String.class, ExpressionType.SIMPLE, "[PlotSquared] all [of the] plot ids [in %-world%]");
     }
 
     private Expression<World> worldExpression;

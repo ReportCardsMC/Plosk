@@ -25,7 +25,7 @@ import static me.github.reportcardsmc.plosk.utils.PlotSquaredUtil.getPlot;
 public class OwnerOfPlotExpr extends SimpleExpression<OfflinePlayer> {
 
     static {
-        Skript.registerExpression(OwnerOfPlotExpr.class, OfflinePlayer.class, ExpressionType.COMBINED, "[plotsquared] owner[s] of plot [with id] %string%", "[plotsquared] plot owner[s] of [id] %string%");
+        Skript.registerExpression(OwnerOfPlotExpr.class, OfflinePlayer.class, ExpressionType.COMBINED, "[PlotSquared] owner[s] of plot [with id] %string%", "[PlotSquared] plot owner[s] of [id] %string%");
     }
 
     private Expression<String> id;

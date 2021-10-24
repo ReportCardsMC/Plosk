@@ -56,7 +56,7 @@ public class EventRegisters {
         Has string value for plot id
         Has player value for player who caused event
          */
-        Skript.registerEvent("PlotSquared: Plot Claim", PlotSkEvent.class, PlayerClaimPlot.class, "[PlotSquared] [player] plot claim[ed]", "[PlotSquared] [player] claim[ed] plot")
+        Skript.registerEvent("PlotSquared: Plot Claim", PlotSkEvent.class, PlayerClaimPlot.class, "[PlotSquared] plot claim[ed] [by player]", "[PlotSquared] [player] claim[ed] plot")
                 .description("Called when a player claims a plot")
                 .examples("on plot claim:", "\tbroadcast \"%player% has claimed plot %event-string%\"");
         EventValues.registerEventValue(PlayerClaimPlot.class, String.class, new Getter<String, PlayerClaimPlot>() {

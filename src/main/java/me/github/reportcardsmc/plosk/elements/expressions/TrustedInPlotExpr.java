@@ -27,7 +27,7 @@ import static me.github.reportcardsmc.plosk.utils.PlotSquaredUtil.getPlot;
 public class TrustedInPlotExpr extends SimpleExpression<OfflinePlayer> {
 
     static {
-        Skript.registerExpression(TrustedInPlotExpr.class, OfflinePlayer.class, ExpressionType.COMBINED, "[plotsquared] trusted player[s] (in|on) plot [with id] %string%");
+        Skript.registerExpression(TrustedInPlotExpr.class, OfflinePlayer.class, ExpressionType.COMBINED, "[PlotSquared] trusted player[s] (in|on) plot [with id] %string%");
     }
 
     private Expression<String> id;

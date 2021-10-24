@@ -21,7 +21,7 @@ import org.jetbrains.annotations.Nullable;
 public class OwnedPlotsExpr extends SimpleExpression<String> {
 
     static {
-        Skript.registerExpression(OwnedPlotsExpr.class, String.class, ExpressionType.COMBINED, "[plotsquared] owned plots of %offlineplayer%", "[plotsquared] %offlineplayer%['][s] owned plots");
+        Skript.registerExpression(OwnedPlotsExpr.class, String.class, ExpressionType.COMBINED, "[PlotSquared] owned plots of %offlineplayer%", "[PlotSquared] %offlineplayer%['][s] owned plots");
     }
 
     private Expression<OfflinePlayer> playerExpression;

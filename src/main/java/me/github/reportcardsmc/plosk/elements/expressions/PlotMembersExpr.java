@@ -27,7 +27,7 @@ import static me.github.reportcardsmc.plosk.utils.PlotSquaredUtil.getPlot;
 public class PlotMembersExpr extends SimpleExpression<OfflinePlayer> {
 
     static {
-        Skript.registerExpression(PlotMembersExpr.class, OfflinePlayer.class, ExpressionType.COMBINED, "[plotsquared] members (in|of) plot [with id] %string%");
+        Skript.registerExpression(PlotMembersExpr.class, OfflinePlayer.class, ExpressionType.COMBINED, "[PlotSquared] members (in|of) plot [with id] %string%");
     }
 
     private Expression<String> id;

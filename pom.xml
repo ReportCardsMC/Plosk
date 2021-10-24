@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>me.github.reportcardsmc</groupId>
-    <artifactId>PlotSk5</artifactId>
+    <artifactId>Plosk</artifactId>
     <version>1.0</version>
     <packaging>jar</packaging>
 
-    <name>PlotSk5</name>
+    <name>Plosk</name>
 
     <description>Skript addon for plot squared 5 support</description>
     <properties>
