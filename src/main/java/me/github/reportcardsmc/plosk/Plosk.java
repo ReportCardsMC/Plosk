@@ -3,6 +3,7 @@ package me.github.reportcardsmc.plosk;
 import ch.njol.skript.Skript;
 import ch.njol.skript.SkriptAddon;
 import com.plotsquared.core.PlotSquared;
+import org.bstats.bukkit.Metrics;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.IOException;
@@ -12,9 +13,12 @@ public final class Plosk extends JavaPlugin {
     public static Plosk instance;
     public static SkriptAddon addon;
     public static PlotSquared plot;
+    private int metricID = 13147;
+    private Metrics metrics;
 
     @Override
     public void onEnable() {
+        metrics = new Metrics(this, metricID);
         // Plugin startup logic
         instance = this;
         plot = PlotSquared.get();
