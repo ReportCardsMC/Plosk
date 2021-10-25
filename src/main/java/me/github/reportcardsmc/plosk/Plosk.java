@@ -23,7 +23,7 @@ public final class Plosk extends JavaPlugin {
         instance = this;
         plot = PlotSquared.get();
         if (plot == null) {
-            getLogger().severe("You don't have plotsquared5 installed.");
+            getLogger().severe("You don't have plotsquared 5 installed.");
             getPluginLoader().disablePlugin(this);
             return;
         } else {
@@ -39,13 +39,15 @@ public final class Plosk extends JavaPlugin {
             getLogger().severe("Couldn't load skript classes.");
             getPluginLoader().disablePlugin(this);
             return;
+        } else {
+            getLogger().info("Classes were registered.");
         }
         getLogger().info("Addon has been enabled");
     }
 
     private boolean loadClasses() {
         try {
-            addon.loadClasses("me.github.reportcardsmc.plotsk5", "elements");
+            addon.loadClasses("me.github.reportcardsmc.plosk", "elements");
         } catch (IOException e) {
             e.printStackTrace();
             return false;
