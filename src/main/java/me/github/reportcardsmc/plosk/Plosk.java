@@ -23,8 +23,8 @@ public final class Plosk extends JavaPlugin {
             getPluginLoader().disablePlugin(this);
             return;
         } else {
-            if (plot.getVersion().version[0] >= 5) {
-                getLogger().severe("You don't have plotsquared 5 installed.");
+            if (plot.getVersion().version[0] < 5) {
+                getLogger().severe("You don't have plotsquared 5 installed, you have " + plot.getVersion().versionString);
                 getPluginLoader().disablePlugin(this);
                 return;
             }
