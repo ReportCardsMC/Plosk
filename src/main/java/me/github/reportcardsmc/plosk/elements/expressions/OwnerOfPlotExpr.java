@@ -36,12 +36,12 @@ public class OwnerOfPlotExpr extends SimpleExpression<OfflinePlayer> {
         Plot plot;
         if (id.getSingle(e) == null || (plot = getPlot(id.getSingle(e))) == null)
             return null; // Inspired from SkUniversal (us.donut.skuniversal.plotsquared.expressions.ExprPlotOwner)
-        return plot.getOwners().stream().map(Bukkit::getOfflinePlayer).toArray(OfflinePlayer[]::new);
+        return new OfflinePlayer[]{Bukkit.getOfflinePlayer(plot.getOwner())};
     }
 
     @Override
     public boolean isSingle() {
-        return false;
+        return true;
     }
 
     @Override
