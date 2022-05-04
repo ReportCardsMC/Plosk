@@ -4,6 +4,7 @@ import ch.njol.skript.Skript;
 import ch.njol.skript.SkriptAddon;
 import com.plotsquared.core.PlotSquared;
 import org.bstats.bukkit.Metrics;
+import org.bstats.charts.SimplePie;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.IOException;
@@ -19,6 +20,7 @@ public final class Plosk extends JavaPlugin {
     @Override
     public void onEnable() {
         metrics = new Metrics(this, metricID);
+        metrics.addCustomChart(new SimplePie("skript_version", () -> Skript.getVersion().toString()));
         // Plugin startup logic
         instance = this;
         plot = PlotSquared.get();
