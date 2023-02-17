@@ -9,6 +9,7 @@ import ch.njol.skript.lang.util.SimpleExpression;
 import ch.njol.util.Kleenean;
 import com.plotsquared.bukkit.util.BukkitUtil;
 import me.github.reportcardsmc.plosk.utils.PlotSquaredUtil;
+import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.event.Event;
 import org.jetbrains.annotations.Nullable;
@@ -30,7 +31,9 @@ public class OwnedPlotsExpr extends SimpleExpression<String> {
     @Override
     protected String[] get(Event e) {
         if (playerExpression.getSingle(e) == null) return null;
-        return PlotSquaredUtil.plotAPI.getPlayerPlots(BukkitUtil.getPlayer(playerExpression.getSingle(e))).stream().map(plot -> plot.getId().toString()).toArray(String[]::new);
+        var plotPlayer = PlotSquaredUtil.plotAPI.wrapPlayer(playerExpression.getSingle(e).getUniqueId());
+        if (plotPlayer == null) return null;
+        return PlotSquaredUtil.plotAPI.getPlayerPlots(plotPlayer).stream().map(plot -> plot.getId().toString()).toArray(String[]::new);
     }
 
     @Override

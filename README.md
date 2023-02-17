@@ -1,5 +1,5 @@
 # Plosk
-The PlotSquared(5) Skript Addon
+The PlotSquared V6 Skript Addon
 
 #### Documented on SkriptHub
 

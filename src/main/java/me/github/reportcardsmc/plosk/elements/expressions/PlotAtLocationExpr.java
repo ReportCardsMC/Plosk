@@ -29,7 +29,7 @@ public class PlotAtLocationExpr extends SimpleExpression<String> {
     protected String[] get(Event e) {
         Location l = loc.getSingle(e);
         if (l == null) return null;
-        com.plotsquared.core.location.Location plotLoc = new com.plotsquared.core.location.Location(l.getWorld().getName(), l.getBlockX(), l.getBlockY(), l.getBlockZ());
+        com.plotsquared.core.location.Location plotLoc = com.plotsquared.core.location.Location.at(l.getWorld().getName(), l.getBlockX(), l.getBlockY(), l.getBlockZ());
         Plot plot = plotLoc.getPlot();
         return plot == null ? null : new String[]{plot.getId().toString()};
     }
