@@ -13,7 +13,7 @@
 
     <description>Skript addon for plot squared 5 support</description>
     <properties>
-        <java.version>19</java.version>
+        <java.version>17</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
