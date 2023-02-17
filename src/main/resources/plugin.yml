@@ -4,4 +4,4 @@ main: me.github.reportcardsmc.plosk.Plosk
 softdepend: [ PlotSquared ]
 depend: [ Skript ]
 authors: [ ReportCardsMC ]
-description: Skript addon for plot squared 5 support
+description: Skript addon for plot squared 6 support
