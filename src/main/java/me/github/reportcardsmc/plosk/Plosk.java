@@ -25,16 +25,9 @@ public final class Plosk extends JavaPlugin {
         instance = this;
         plot = PlotSquared.get();
         if (plot == null) {
-            getLogger().severe("You don't have plotsquared 5 installed.");
+            getLogger().severe("You don't have plotsquared 6 installed.");
             getPluginLoader().disablePlugin(this);
             return;
-        } else {
-            if (plot.getVersion().version[0] < 5) {
-                getLogger().severe("You don't have plotsquared 5 installed, you have " + plot.getVersion().versionString);
-                getPluginLoader().disablePlugin(this);
-                return;
-            }
-
         }
         addon = Skript.registerAddon(this);
         if (!loadClasses()) {
