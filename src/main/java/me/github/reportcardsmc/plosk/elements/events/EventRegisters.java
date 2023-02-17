@@ -3,7 +3,7 @@ package me.github.reportcardsmc.plosk.elements.events;
 import ch.njol.skript.Skript;
 import ch.njol.skript.registrations.EventValues;
 import ch.njol.skript.util.Getter;
-import com.plotsquared.core.api.PlotAPI;
+import com.plotsquared.core.PlotAPI;
 import com.plotsquared.core.plot.Plot;
 import com.plotsquared.core.plot.PlotId;
 import me.github.reportcardsmc.plosk.utils.events.*;

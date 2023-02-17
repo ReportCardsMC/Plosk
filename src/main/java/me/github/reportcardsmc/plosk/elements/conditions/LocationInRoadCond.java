@@ -6,8 +6,11 @@ import ch.njol.skript.lang.Condition;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
 import ch.njol.util.Kleenean;
+import com.plotsquared.core.PlotSquared;
+import com.sk89q.worldedit.math.BlockVector3;
 import org.bukkit.Location;
 import org.bukkit.event.Event;
+import org.bukkit.util.BlockVector;
 import org.jetbrains.annotations.Nullable;
 
 @Name("Location in Road")
@@ -26,7 +29,7 @@ public class LocationInRoadCond extends Condition {
     public boolean check(Event e) {
         Location loc = location.getSingle(e);
         if (loc == null) return isNegated();
-        com.plotsquared.core.location.Location plotLoc = new com.plotsquared.core.location.Location(loc.getWorld().getName(), loc.getBlockX(), loc.getBlockY(), loc.getBlockZ());
+        com.plotsquared.core.location.Location plotLoc = com.plotsquared.core.location.Location.at(loc.getWorld().getName(), loc.getBlockX(), loc.getBlockY(), loc.getBlockZ());
         boolean isRoad = plotLoc.isPlotRoad();
         if (isNegated()) return !isRoad;
         return isRoad;

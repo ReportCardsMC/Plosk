@@ -76,8 +76,7 @@ public class PlotFlagExpr extends SimpleExpression<Object> {
             case SET:
                 plot.setFlag(GlobalFlagContainer.getInstance().getFlagClassFromString(f), value.toString());
                 break;
-            case RESET:
-            case DELETE:
+            case RESET, DELETE:
                 plot.removeFlag(GlobalFlagContainer.getInstance().getFlagFromString(f));
                 break;
         }
