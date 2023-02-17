@@ -8,6 +8,7 @@ import org.bukkit.util.Vector;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class LocationUtil {
@@ -16,7 +17,7 @@ public class LocationUtil {
     public static Block[] getBorder(Plot plot, int borderHeight) {
         List<Block> blocks = new ArrayList<>();
 
-        List<com.plotsquared.core.location.Location> corners = plot.getAllCorners();
+        List<com.plotsquared.core.location.Location> corners = Arrays.asList(plot.getCorners());
         for (int i = 0; i < corners.size(); i++) {
             com.plotsquared.core.location.Location corner = corners.get(i);
 
@@ -43,7 +44,7 @@ public class LocationUtil {
     }
 
     private static Location toLocation(com.plotsquared.core.location.Location loc) {
-        return new Location(Bukkit.getWorld(loc.getWorld()), loc.getX(), loc.getY(), loc.getZ());
+        return new Location(Bukkit.getWorld(loc.getWorld().getName()), loc.getX(), loc.getY(), loc.getZ());
     }
 
 }

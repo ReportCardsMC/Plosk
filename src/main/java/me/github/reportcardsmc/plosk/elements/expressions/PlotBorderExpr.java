@@ -35,11 +35,7 @@ public class PlotBorderExpr extends SimpleExpression<Block> {
         Number h = height.getSingle(e);
         if (plot.getSingle(e) == null || h == null || (p = PlotSquaredUtil.getPlot(plot.getSingle(e))) == null)
             return null;
-        Block[] blocks = LocationUtil.getBorder(p, h.intValue());
-        //        for (Block block : blocks) {
-//            Bukkit.getLogger().warning(block.getLocation().toString());
-//        }
-        return blocks;
+        return LocationUtil.getBorder(p, h.intValue());
     }
 
     @Override

@@ -1,6 +1,6 @@
 package me.github.reportcardsmc.plosk.utils;
 
-import com.plotsquared.core.api.PlotAPI;
+import com.plotsquared.core.PlotAPI;
 import com.plotsquared.core.plot.Plot;
 import com.plotsquared.core.plot.PlotId;
 import org.jetbrains.annotations.Nullable;
