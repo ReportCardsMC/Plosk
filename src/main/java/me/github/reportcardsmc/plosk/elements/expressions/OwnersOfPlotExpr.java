@@ -13,6 +13,7 @@ import com.plotsquared.core.plot.Plot;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.event.Event;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import static me.github.reportcardsmc.plosk.utils.PlotSquaredUtil.getPlot;
@@ -45,7 +46,7 @@ public class OwnersOfPlotExpr extends SimpleExpression<OfflinePlayer> {
     }
 
     @Override
-    public Class<? extends OfflinePlayer> getReturnType() {
+    public @NotNull Class<? extends OfflinePlayer> getReturnType() {
         return OfflinePlayer.class;
     }
 
@@ -63,17 +64,12 @@ public class OwnersOfPlotExpr extends SimpleExpression<OfflinePlayer> {
 
     @Override
     public void change(Event e, @Nullable Object[] delta, Changer.ChangeMode mode) {
-        Plot plot;
-        if (id.getSingle(e) == null || (plot = getPlot(id.getSingle(e))) == null) return;
-        OfflinePlayer player = (OfflinePlayer) delta[0];
-        if (mode == Changer.ChangeMode.SET) {
-            plot.setOwner(player.getUniqueId());
-        }
+        // Disabled since owners is read-only
     }
 
     @Nullable
     @Override
     public Class<?>[] acceptChange(Changer.ChangeMode mode) {
-        return (mode == Changer.ChangeMode.SET) ? CollectionUtils.array(OfflinePlayer.class) : null;
+        return null;
     }
 }
