@@ -18,14 +18,14 @@ import org.jetbrains.annotations.Nullable;
 import static me.github.reportcardsmc.plosk.utils.PlotSquaredUtil.getPlot;
 
 @Name("Owners of Plot")
-@Description("The main owner of the plot")
-@Examples({"command /owner:", "    trigger:", "        send \"Plot Owner: %owner of plot plot at player%\""})
+@Description("A list of owners in a plot")
+@Examples({"command /owners:", "    trigger:", "        send \"Plot Owners: %owners of plot plot at player%\""})
 @Since("1.0")
 @RequiredPlugins("PlotSquared")
-public class OwnerOfPlotExpr extends SimpleExpression<OfflinePlayer> {
+public class OwnersOfPlotExpr extends SimpleExpression<OfflinePlayer> {
 
     static {
-        Skript.registerExpression(OwnerOfPlotExpr.class, OfflinePlayer.class, ExpressionType.COMBINED, "[PlotSquared] owner of plot [with id] %string%", "[PlotSquared] plot owner of [id] %string%");
+        Skript.registerExpression(OwnerOfPlotExpr.class, OfflinePlayer.class, ExpressionType.COMBINED, "[PlotSquared] owners of plot [with id] %string%", "[PlotSquared] plot owners of [id] %string%");
     }
 
     private Expression<String> id;
@@ -36,12 +36,12 @@ public class OwnerOfPlotExpr extends SimpleExpression<OfflinePlayer> {
         Plot plot;
         if (id.getSingle(e) == null || (plot = getPlot(id.getSingle(e))) == null || plot.getOwner() == null)
             return null; // Inspired from SkUniversal (us.donut.skuniversal.plotsquared.expressions.ExprPlotOwner)
-        return new OfflinePlayer[]{Bukkit.getOfflinePlayer(plot.getOwner())};
+        return plot.getOwners().stream().map(Bukkit::getOfflinePlayer).toArray(OfflinePlayer[]::new);
     }
 
     @Override
     public boolean isSingle() {
-        return true;
+        return false;
     }
 
     @Override
@@ -51,7 +51,7 @@ public class OwnerOfPlotExpr extends SimpleExpression<OfflinePlayer> {
 
     @Override
     public String toString(@Nullable Event e, boolean debug) {
-        return "Owner of plot: " + id.toString(e, debug);
+        return "Owners of plot: " + id.toString(e, debug);
     }
 
     @SuppressWarnings("unchecked")
